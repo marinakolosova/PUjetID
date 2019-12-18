@@ -27,3 +27,9 @@ process.pileupJetId.applyJec = False
 process.pileupJetId.vertexes = cms.InputTag(“offlineSlimmedPrimaryVertices”)
 process.pileupJetId.algos = cms.VPSet(_chsalgos_)
 ```
+
+## Scale Factors and uncertainties
+
+In the folder ScaleFactors, root files containing the scale factors and uncertainties are included. 
+
+   * [[PUID_80XTraining_EffSFandUncties.root][ScaleFactors/PUID_80XTraining_EffSFandUncties.root]]: contains efficiencies, mistag rates, and uncertainties for 2016/2017/2018 samples using the 80X training.
