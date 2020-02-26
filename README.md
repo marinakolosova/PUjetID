@@ -12,11 +12,15 @@ This branch contains the weights for pileup jetid for 2017 (94X) and 2018 (102X)
 ```
 git clone -b 94X_weights_DYJets_inc_v2 git@github.com:cms-jet/PUjetID.git PUJetIDweights/
 cp PUJetIDWeights/weights/pileupJetId_{94,102}X_Eta* $CMSSW_BASE/src/RecoJets/JetProducers/data/
-git cms-merge-topic singh-ramanpreet:PUID_102_15_v2
 rm -rf PUJetIDweights/  ### If needed
 ```
 
- ## Changes in config file
+## Changes in CMSSW
+
+ * For 102X: `git cms-merge-topic alefisico:PUID_102X`
+ * For 106X: `git cms-merge-topic alefisico:PUID_106X`
+
+## Changes in config file
  
 ```
 from RecoJets.JetProducers.PileupJetID_cfi import _chsalgos_94x, _chsalgos_102x
