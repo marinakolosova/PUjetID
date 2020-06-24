@@ -1,17 +1,17 @@
 # Pileup JetID
 
-This branch contains the weights for pileup jetid for 2017 (94X) and 2018 (102X) data. These weights:
+This branch contains the weights for pileup jetid for 2017 UL (106X) data for AK4 CHS jets. These weights:
 
-1. they are trained in eta bins [0, 2.5], [2.5, 2.75], [2.75, 3.0], [3.0, 5.0] different from previously shared recipe (2916 data).
-2. Working points are still 81X, so the w.p. integrated or stored will not compatible with these trainings.
+1. they are trained in eta bins [0, 2.5], [2.5, 2.75], [2.75, 3.0], [3.0, 5.0] different from previously shared recipe (2016 data).
+2. New working points are derived in 4 pT bins [10, 20], [20, 30], [30, 40], and [40, 50].
 3. instead of using id flags use `mva` value to apply cut/id.
 
 
 ## Instructions to download weights
 
 ```
-git clone -b 94X_weights_DYJets_inc_v2 git@github.com:cms-jet/PUjetID.git PUJetIDweights/
-cp PUJetIDWeights/weights/pileupJetId_{94,102}X_Eta* $CMSSW_BASE/src/RecoJets/JetProducers/data/
+git clone -b 106X_weights_2017UL git@github.com:cms-jet/PUjetID.git PUJetIDweights/
+cp PUJetIDWeights/weights/pileupJetId_UL17_Eta* $CMSSW_BASE/src/RecoJets/JetProducers/data/
 rm -rf PUJetIDweights/  ### If needed
 ```
 
@@ -23,7 +23,7 @@ rm -rf PUJetIDweights/  ### If needed
 ## Changes in config file
  
 ```
-from RecoJets.JetProducers.PileupJetID_cfi import _chsalgos_94x, _chsalgos_102x
+from RecoJets.JetProducers.PileupJetID_cfi import _chsalgos_94x, _chsalgos_102x, _chsalgos_106X_UL17
 process.load(“RecoJets.JetProducers.PileupJetID_cfi”)
 process.pileupJetId.jets = cms.InputTag(“ ... ”)
 process.pileupJetId.inputIsCorrected = True
@@ -36,4 +36,4 @@ process.pileupJetId.algos = cms.VPSet(_chsalgos_)
 
 In the folder ScaleFactors, root files containing the scale factors and uncertainties are included. 
 
-   * [PUID_80XTraining_EffSFandUncties.root](ScaleFactors/PUID_80XTraining_EffSFandUncties.root): contains efficiencies, mistag rates, and uncertainties for 2016/2017/2018 samples using the 80X training.
+   * LINK TO UL17 SFs: contains efficiencies, mistag rates, and uncertainties for 2017 UL samples using the 106X training.
